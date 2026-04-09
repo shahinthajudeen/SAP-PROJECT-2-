@@ -1,0 +1,45 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: { 
+    typeName: 'Product', 
+    typeNamePlural: 'Products', 
+    title: { type: #STANDARD, value: 'ProductName' },
+    description: { type: #STANDARD, value: 'Category' }
+}
+annotate view ZC_ProductInventory with
+{
+  @UI.facet: [ { id: 'ProductInfo', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Product Details', position: 10 } ]
+
+  @EndUserText.label: 'Product ID'
+  @UI: { lineItem: [ { position: 10 } ], identification: [ { position: 10 } ], selectionField: [ { position: 10 } ] }
+  ProductId;
+
+  @EndUserText.label: 'Product Name'
+  @UI: { lineItem: [ { position: 20 } ], identification: [ { position: 20 } ], selectionField: [ { position: 20 } ] }
+  ProductName;
+
+  @EndUserText.label: 'Category'
+  @UI: { lineItem: [ { position: 30 } ], identification: [ { position: 30 } ], selectionField: [ { position: 30 } ] }
+  Category;
+
+  @EndUserText.label: 'Quantity'
+  @UI: { lineItem: [ { position: 40 } ], identification: [ { position: 40 } ] }
+  Quantity;
+
+  @EndUserText.label: 'Price'
+  @UI: { lineItem: [ { position: 50 } ], identification: [ { position: 50 } ] }
+  Price;
+
+  @UI.hidden: true
+  Currency; 
+
+  @EndUserText.label: 'Supplier'
+  @UI: { lineItem: [ { position: 60 } ], identification: [ { position: 60 } ] }
+  Supplier;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  UpdatedAt;
+}

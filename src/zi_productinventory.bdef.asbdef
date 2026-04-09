@@ -1,0 +1,21 @@
+unmanaged implementation in class zbp_i_productinventory unique;
+strict ( 2 );
+
+define behavior for ZI_ProductInventory alias Product
+lock master
+authorization master ( instance )
+
+{
+  create;
+  update;
+  delete;
+
+  //" Field Control: Ensure the ID cannot be changed after creation
+  field ( readonly : update ) ProductId;
+
+  //" Field Control: Audit fields should not be manually editable
+  field ( readonly ) CreatedAt, UpdatedAt;
+
+  //" Field Control: Require these fields to be filled out on the UI
+  field ( mandatory ) ProductName, Quantity, Price, Currency;
+}
